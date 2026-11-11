@@ -1,0 +1,775 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SentinelPay | AI Security</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-icon">
+                <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <div>
+                <h2>Sentinel<span>Pay</span></h2>
+                <small>INTELLIGENT SECURITY</small>
+            </div>
+        </div>
+
+        <div class="sidebar-label">WORKSPACE</div>
+
+        <nav class="sidebar-nav">
+
+            <a href="#" class="nav-link active" data-page="overview">
+                <i class="fa-solid fa-chart-pie"></i>
+                <span>Overview</span>
+            </a>
+
+            <a href="#" class="nav-link" data-page="allowance">
+                <i class="fa-solid fa-wallet"></i>
+                <span>Allowance Management</span>
+            </a>
+
+            <a href="#" class="nav-link" data-page="scanner">
+                <i class="fa-solid fa-magnifying-glass-chart"></i>
+                <span>Prompt Scanner</span>
+            </a>
+
+            <a href="#" class="nav-link" data-page="wallet-security">
+                <i class="fa-solid fa-shield"></i>
+                <span>Wallet Security</span>
+            </a>
+
+            <a href="#" class="nav-link" data-page="override">
+                <i class="fa-solid fa-user-shield"></i>
+                <span>Human Override</span>
+            </a>
+
+            <a href="#" class="nav-link" data-page="audit">
+                <i class="fa-solid fa-clock-rotate-left"></i>
+                <span>Audit Logs</span>
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <div class="sidebar-security">
+                <div class="security-icon">
+                    <i class="fa-solid fa-lock"></i>
+                </div>
+                <div>
+                    <strong>System Protected</strong>
+                    <small>AI security active</small>
+                </div>
+                <span class="online-dot"></span>
+            </div>
+
+            <div class="profile">
+                <div class="profile-avatar">SP</div>
+                <div class="profile-info">
+                    <strong>Sentinel Admin</strong>
+                    <small>Security Dashboard</small>
+                </div>
+                <i class="fa-solid fa-ellipsis"></i>
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <!-- TOP HEADER -->
+        <header class="topbar">
+
+            <div class="page-heading">
+                <div class="breadcrumb" id="pageBreadcrumb">
+                    Workspace / Overview
+                </div>
+                <h1 id="pageTitle">Overview</h1>
+                <p id="pageDescription">
+                    Your intelligent payment security command center.
+                </p>
+            </div>
+
+            <div class="topbar-right">
+
+                <div class="system-status">
+                    <span class="online-dot"></span>
+                    All systems operational
+                </div>
+
+                <button class="icon-button" type="button" aria-label="Notifications">
+                    <i class="fa-regular fa-bell"></i>
+                </button>
+
+                <div class="topbar-avatar">SA</div>
+
+            </div>
+
+        </header>
+
+
+        <!-- PAGE CONTENT -->
+        <div class="content-area">
+
+
+            <!-- OVERVIEW PAGE -->
+            <section class="app-page active-page" id="page-overview">
+
+                <div class="welcome-banner">
+
+                    <div class="welcome-text">
+                        <span class="eyebrow">INTELLIGENT FINANCIAL PROTECTION</span>
+                        <h2>Security that thinks<br>before it acts.</h2>
+                        <p>
+                            Monitor payment activity, detect suspicious
+                            behaviour and protect every transaction.
+                        </p>
+
+                        <button class="primary-button" type="button"
+                            onclick="document.querySelector('[data-page=allowance]').click()">
+                            Manage Payments
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+
+                    <div class="ai-visual">
+
+                        <div class="orb-orbit orbit-one"></div>
+                        <div class="orb-orbit orbit-two"></div>
+                        <div class="orb-orbit orbit-three"></div>
+
+                        <div class="ai-orb">
+                            <div class="orb-inner">
+                                <i class="fa-solid fa-shield-halved"></i>
+                            </div>
+                        </div>
+
+                        <div class="orb-caption">
+                            <span class="online-dot"></span>
+                            AI DEFENSE ACTIVE
+                        </div>
+
+                    </div>
+
+                    <div class="banner-decoration"></div>
+
+                </div>
+
+
+                <!-- SUMMARY CARDS -->
+                <div class="section-heading">
+                    <div>
+                        <span class="eyebrow">LIVE MONITORING</span>
+                        <h3>Security Overview</h3>
+                    </div>
+                    <span class="live-label">
+                        <span class="online-dot"></span>
+                        LIVE DATA
+                    </span>
+                </div>
+
+                <div class="stats-grid">
+
+                    <div class="stat-card">
+                        <div class="stat-top">
+                            <span>Total Transactions</span>
+                            <div class="stat-icon orange-icon">
+                                <i class="fa-solid fa-arrow-right-arrow-left"></i>
+                            </div>
+                        </div>
+                        <h2 id="totalTransactions">--</h2>
+                        <small>Recorded transactions</small>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-top">
+                            <span>Approved Payments</span>
+                            <div class="stat-icon green-icon">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                        </div>
+                        <h2 id="approvedPayments">--</h2>
+                        <small>Successfully processed</small>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-top">
+                            <span>Blocked Payments</span>
+                            <div class="stat-icon red-icon">
+                                <i class="fa-solid fa-ban"></i>
+                            </div>
+                        </div>
+                        <h2 id="blockedPayments">--</h2>
+                        <small>Blocked records available</small>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-top">
+                            <span>Wallet Status</span>
+                            <div class="stat-icon purple-icon">
+                                <i class="fa-solid fa-shield"></i>
+                            </div>
+                        </div>
+                        <h2 id="overviewWalletStatus">--</h2>
+                        <small>Agent: agent_01</small>
+                    </div>
+
+                </div>
+
+
+                <!-- CHART AND SECURITY PANEL -->
+                <div class="overview-grid">
+
+                    <div class="panel chart-panel">
+
+                        <div class="panel-heading">
+                            <div>
+                                <span class="eyebrow">TRANSACTION ANALYTICS</span>
+                                <h3>Payment Activity</h3>
+                            </div>
+                            <span class="panel-icon">
+                                <i class="fa-solid fa-chart-line"></i>
+                            </span>
+                        </div>
+
+                        <div class="chart-container">
+                            <canvas id="transactionChart"></canvas>
+                        </div>
+
+                    </div>
+
+
+                    <div class="panel security-panel">
+
+                        <div class="panel-heading">
+                            <div>
+                                <span class="eyebrow">PROTECTION CENTER</span>
+                                <h3>Wallet Security</h3>
+                            </div>
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+
+                        <div class="security-graphic">
+                            <div class="security-ring">
+                                <i class="fa-solid fa-lock"></i>
+                            </div>
+                        </div>
+
+                        <div class="security-status-text">
+                            <strong>Security Monitoring</strong>
+                            <p id="overviewSecurityMessage">
+                                Checking wallet protection status...
+                            </p>
+                        </div>
+
+                        <button class="secondary-button" type="button"
+                            onclick="document.querySelector('[data-page=wallet-security]').click()">
+                            View Wallet Security
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- RECENT TRANSACTIONS -->
+                <div class="panel recent-panel">
+
+                    <div class="panel-heading">
+                        <div>
+                            <span class="eyebrow">ACTIVITY FEED</span>
+                            <h3>Recent Transactions</h3>
+                        </div>
+
+                        <button class="text-button" type="button"
+                            onclick="document.querySelector('[data-page=audit]').click()">
+                            View all
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Transaction ID</th>
+                                    <th>Agent</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                    <th>Reason</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="transactionList">
+                                <tr>
+                                    <td colspan="5">Loading transactions...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ALLOWANCE MANAGEMENT PAGE -->
+            <section class="app-page" id="page-allowance">
+
+                <div class="page-intro">
+                    <div class="intro-icon">
+                        <i class="fa-solid fa-wallet"></i>
+                    </div>
+                    <div>
+                        <h2>Allowance Management</h2>
+                        <p>Verify payment requests against wallet spending limits.</p>
+                    </div>
+                </div>
+
+                <div class="feature-layout">
+
+                    <div class="panel form-panel">
+
+                        <div class="panel-heading">
+                            <div>
+                                <span class="eyebrow">PAYMENT CONTROL</span>
+                                <h3>Verify a Payment</h3>
+                            </div>
+                        </div>
+
+                        <form id="allowanceForm">
+
+                            <label for="allowanceAgent">Agent / Wallet ID</label>
+                            <input type="text" id="allowanceAgent"
+                                placeholder="e.g. agent_01" value="agent_01" required>
+
+                            <label for="paymentAmount">Requested Amount</label>
+                            <div class="input-with-icon">
+                                <span>₹</span>
+                                <input type="number" id="paymentAmount"
+                                    placeholder="Enter amount" min="0.01"
+                                    step="0.01" required>
+                            </div>
+
+                            <label for="paymentPrompt">Payment Description</label>
+                            <textarea id="paymentPrompt" rows="4"
+                                placeholder="Describe the purpose of this payment..."></textarea>
+
+                            <button class="primary-button full-button" type="submit">
+                                <i class="fa-solid fa-shield-check"></i>
+                                Verify Payment
+                            </button>
+
+                        </form>
+
+                    </div>
+
+                    <div class="panel result-panel">
+
+                        <div class="result-illustration">
+                            <i class="fa-solid fa-scale-balanced"></i>
+                        </div>
+
+                        <span class="eyebrow">VERIFICATION RESULT</span>
+                        <h3>Payment Decision</h3>
+
+                        <div id="allowanceResult" class="result-message">
+                            Your payment verification result will appear here.
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- PROMPT SCANNER PAGE -->
+            <section class="app-page" id="page-scanner">
+
+                <div class="page-intro">
+                    <div class="intro-icon">
+                        <i class="fa-solid fa-magnifying-glass-chart"></i>
+                    </div>
+                    <div>
+                        <h2>Prompt Scanner</h2>
+                        <p>Inspect payment instructions for suspicious or malicious language.</p>
+                    </div>
+                </div>
+
+                <div class="scanner-layout">
+
+                    <div class="panel form-panel">
+
+                        <div class="panel-heading">
+                            <div>
+                                <span class="eyebrow">AI THREAT ANALYSIS</span>
+                                <h3>Scan Payment Prompt</h3>
+                            </div>
+                            <div class="stat-icon orange-icon">
+                                <i class="fa-solid fa-brain"></i>
+                            </div>
+                        </div>
+
+                        <form id="scannerForm" onsubmit="return false;">
+
+                            <label for="scannerAgent">Agent / Wallet ID</label>
+                            <input type="text" id="scannerAgent"
+                                value="agent_01" placeholder="agent_01" required>
+
+                            <label for="scannerPrompt">Enter Prompt</label>
+                            <textarea id="scannerPrompt" rows="7"
+                                placeholder="Paste the payment instruction you want to inspect..."
+                                required></textarea>
+
+                            <button class="primary-button full-button" type="submit">
+                                <i class="fa-solid fa-radar"></i>
+                                Scan for Threats
+                            </button>
+
+                        </form>
+
+                    </div>
+
+                    <div class="panel scanner-result">
+
+                        <div class="scanner-visual">
+                            <div class="scanner-circle">
+                                <i class="fa-solid fa-fingerprint"></i>
+                            </div>
+                            <div class="scanner-line"></div>
+                        </div>
+
+                        <span class="eyebrow">SCAN REPORT</span>
+                        <h3>Threat Detection</h3>
+
+                        <div id="scannerResult" class="result-message">
+                            Waiting for prompt analysis...
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- WALLET SECURITY PAGE -->
+            <section class="app-page" id="page-wallet-security">
+
+                <div class="page-intro">
+                    <div class="intro-icon">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <div>
+                        <h2>Wallet Security</h2>
+                        <p>Inspect wallet status, allowance and remaining balance.</p>
+                    </div>
+                </div>
+
+                <div class="panel form-panel">
+
+                    <div class="panel-heading">
+                        <div>
+                            <span class="eyebrow">WALLET MONITORING</span>
+                            <h3>Check Wallet Status</h3>
+                        </div>
+                    </div>
+
+                    <form id="walletStatusForm">
+
+                        <label for="statusAgent">Agent / Wallet ID</label>
+                        <input type="text" id="statusAgent"
+                            value="agent_01" placeholder="agent_01" required>
+
+                        <button class="primary-button" type="submit">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            Check Status
+                        </button>
+
+                    </form>
+
+                </div>
+
+                <div class="wallet-details-grid">
+
+                    <div class="wallet-status-card">
+                        <span>Current Status</span>
+                        <h2 id="walletStatusValue">--</h2>
+                        <i class="fa-solid fa-shield"></i>
+                    </div>
+
+                    <div class="wallet-detail-card">
+                        <span>Total Allowance</span>
+                        <h2 id="walletAllowance">--</h2>
+                    </div>
+
+                    <div class="wallet-detail-card">
+                        <span>Amount Spent</span>
+                        <h2 id="walletSpent">--</h2>
+                    </div>
+
+                    <div class="wallet-detail-card">
+                        <span>Remaining Balance</span>
+                        <h2 id="walletRemaining">--</h2>
+                    </div>
+
+                </div>
+
+                <div class="panel">
+                    <span class="eyebrow">SECURITY INFORMATION</span>
+                    <h3>Wallet Protection Details</h3>
+                    <p id="walletReason">
+                        Check a wallet to view its current security information.
+                    </p>
+                </div>
+
+            </section>
+
+
+            <!-- HUMAN OVERRIDE PAGE -->
+            <section class="app-page" id="page-override">
+
+                <div class="page-intro">
+                    <div class="intro-icon">
+                        <i class="fa-solid fa-user-shield"></i>
+                    </div>
+                    <div>
+                        <h2>Human Override</h2>
+                        <p>Authorized manual control for restoring wallet access.</p>
+                    </div>
+                </div>
+
+                <div class="override-layout">
+
+                    <div class="panel override-info">
+
+                        <div class="override-graphic">
+                            <i class="fa-solid fa-user-shield"></i>
+                        </div>
+
+                        <span class="eyebrow">HUMAN AUTHORIZATION</span>
+                        <h3>Administrator Control</h3>
+
+                        <p>
+                            Use this control only after reviewing the
+                            wallet's security condition.
+                        </p>
+
+                        <div class="notice">
+                            <i class="fa-solid fa-circle-info"></i>
+                            <span>Unfreezing a wallet restores access. It does not perform a new security scan.</span>
+                        </div>
+
+                    </div>
+
+                    <div class="panel form-panel">
+
+                        <span class="eyebrow">MANUAL WALLET CONTROL</span>
+                        <h3>Restore Wallet Access</h3>
+
+                        <form id="overrideForm">
+
+                            <label for="overrideAgent">Agent / Wallet ID</label>
+                            <input type="text" id="overrideAgent"
+                                value="agent_01" placeholder="agent_01" required>
+
+                            <button class="primary-button full-button" type="submit">
+                                <i class="fa-solid fa-unlock"></i>
+                                Unfreeze Wallet
+                            </button>
+
+                        </form>
+
+                        <div id="overrideResult" class="result-message">
+                            Override result will appear here.
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- AUDIT LOGS PAGE -->
+            <section class="app-page" id="page-audit">
+
+                <div class="page-intro">
+                    <div class="intro-icon">
+                        <i class="fa-solid fa-clock-rotate-left"></i>
+                    </div>
+                    <div>
+                        <h2>Audit Logs</h2>
+                        <p>Review recorded payment decisions and transaction activity.</p>
+                    </div>
+                </div>
+
+                <div class="panel audit-panel">
+
+                    <div class="panel-heading">
+                        <div>
+                            <span class="eyebrow">TRANSACTION HISTORY</span>
+                            <h3>Security Activity Records</h3>
+                        </div>
+
+                        <button class="secondary-button" id="refreshAudit" type="button">
+                            <i class="fa-solid fa-rotate"></i>
+                            Refresh Logs
+                        </button>
+                    </div>
+
+                    <div class="audit-filter">
+                        <label for="auditAgent">Filter by Agent ID</label>
+                        <input type="text" id="auditAgent"
+                            placeholder="Enter agent ID or leave empty for all">
+                    </div>
+
+                    <div class="table-wrapper">
+
+                        <table>
+                            <thead>
+                                <tr>
+                                
+                                    <th>Transaction ID</th>
+                                    <th>Agent ID</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                    <th>Event Type</th>
+                                    <th>Risk Score</th> 
+                                    <th>Detection</th>
+                                    <th>Date & Time</th>
+                                    <th>Reason</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="auditLogList">
+                                <tr>
+                                    <td colspan="9">Loading audit records...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+        </div>
+
+        <footer class="footer">
+            <span>SentinelPay © 2026</span>
+            <span>AI-Powered Payment Security</span>
+        </footer>
+
+    </main>
+
+</div>
+
+
+<!-- PAGE NAVIGATION -->
+<script>
+    const pageInformation = {
+        overview: {
+            title: "Overview",
+            description: "Your intelligent payment security command center."
+        },
+        allowance: {
+            title: "Allowance Management",
+            description: "Control and verify payment requests."
+        },
+        scanner: {
+            title: "Prompt Scanner",
+            description: "Detect suspicious payment instructions."
+        },
+        "wallet-security": {
+            title: "Wallet Security",
+            description: "Monitor wallet health and spending limits."
+        },
+        override: {
+            title: "Human Override",
+            description: "Manage authorized wallet recovery."
+        },
+        audit: {
+            title: "Audit Logs",
+            description: "Review recorded transaction activity."
+        }
+    };
+
+    document.querySelectorAll(".nav-link").forEach(link => {
+        link.addEventListener("click", function(event) {
+            event.preventDefault();
+
+            const page = this.dataset.page;
+
+            document.querySelectorAll(".nav-link").forEach(item => {
+                item.classList.remove("active");
+            });
+
+            this.classList.add("active");
+
+            document.querySelectorAll(".app-page").forEach(section => {
+                section.classList.remove("active-page");
+            });
+
+            const selectedPage = document.getElementById("page-" + page);
+
+            if (selectedPage) {
+                selectedPage.classList.add("active-page");
+            }
+
+            document.getElementById("pageTitle").textContent =
+                pageInformation[page].title;
+
+            document.getElementById("pageDescription").textContent =
+                pageInformation[page].description;
+
+            document.getElementById("pageBreadcrumb").textContent =
+                "Workspace / " + pageInformation[page].title;
+
+            if (page === "overview" && typeof window.refreshOverview === "function") {
+                window.refreshOverview();
+            }
+
+            if (page === "audit" && typeof window.loadAuditLogs === "function") {
+                window.loadAuditLogs();
+            }
+        });
+    });
+</script>
+
+<!-- Main JavaScript -->
+<script src="app.js"></script>
+
+</body>
+</html>
