@@ -3,7 +3,8 @@
    SENTINELPAY - FRONTEND BACKEND CONNECTION
 ========================================= */
 
-const API_BASE = "http://127.0.0.1:8000";
+const API_BASE = "https://sentinelpay-9xnd.onrender.com
+";
 
 let allTransactions = [];
 let transactionChart = null;
