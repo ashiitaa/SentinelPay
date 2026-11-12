@@ -65,17 +65,6 @@ It provides a centralized dashboard to verify payment requests, manage wallet al
 4. A verification decision is generated.
 5. Results are displayed on the dashboard.
 
-## 👥 OUR TEAM
 
-**Team SentinelPay**
-
-- Participant 1 – Backend Development
-- Participant 2 – Frontend Development
-
----
-
-<p align="center">
-  <b>BUILT WITH INNOVATION. DESIGNED FOR SECURITY.</b>
-  <br/>
   ⭐ Thank you for visiting SentinelPay!
 </p>
