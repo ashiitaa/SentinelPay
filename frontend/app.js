@@ -567,7 +567,7 @@ if (scannerForm) {
 
         const params = new URLSearchParams({
             agent_id: agentId,
-            amount: "0",
+            amount: "1",
             prompt_text: prompt
         });
 
